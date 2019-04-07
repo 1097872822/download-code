@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources> 
+    	<data-source type="org.apache.commons.dbcp.BasicDataSource" key="dataSources">
+           
+              <set-property  property="driverClassName"    value="org.gjt.mm.mysql.Driver"   />   
+              <set-property  property="url"   value="jdbc:mysql://localhost:3306/db_bbs"    /> 
+              <set-property   value="20"   property="maxCount"   />   
+              <set-property   value="1"   property="minCount"   />     
+              <set-property  property="username"  value="root"     />   
+              <set-property  property="password" value="111"      />   
+          </data-source> 
+  </data-sources>  
+  <form-beans >
+    <form-bean name="loginForm" type="com.wsy.struts.form.LoginForm" />
+    <form-bean name="registerForm" type="com.wsy.struts.form.RegisterForm" />
+    <form-bean name="ForumForm" type="com.wsy.struts.form.ForumForm" />
+    <form-bean name="newtopicForm" type="com.wsy.struts.form.NewtopicForm" />
+    <form-bean name="NewtopicForm" type="com.wsy.struts.form.NewAticleForm" />
+    <form-bean name="responselistForm" type="com.wsy.struts.form.ResponselistForm" />
+    <form-bean name="forumeditForm" type="com.wsy.struts.form.ForumeditForm" />
+	<form-bean name="userManagerForm" type="com.wsy.struts.form.UserManagerForm" />
+    <form-bean name="usersearchForm" type="com.wsy.struts.form.UsersearchForm" />
+    <form-bean name="usereditForm" type="com.wsy.struts.form.UsereditForm" />
+    <form-bean name="ueditForm" type="com.wsy.struts.form.UeditForm" />
+    <form-bean name="userdeleteForm" type="com.wsy.struts.form.UserdeleteForm" />
+    <form-bean name="forumDelForm" type="com.wsy.struts.form.ForumDelForm" />
+    <form-bean name="forumAddForm" type="com.wsy.struts.form.ForumAddForm" />
+    <form-bean name="topicmanagerForm" type="com.wsy.struts.form.TopicmanagerForm" />
+    <form-bean name="topicDelForm" type="com.wsy.struts.form.TopicDelForm" />
+    <form-bean name="responseDelForm" type="com.wsy.struts.form.ResponseDelForm" />
+    <form-bean name="CheckForm" type="com.wsy.struts.form.CheckForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+  	<forward name="ToUserLogin" path="/index.jsp"/>
+  </global-forwards>
+  <action-mappings >
+    <action
+      attribute="loginForm"
+      input="/index.jsp"
+      name="loginForm"
+      path="/login"
+      scope="request"
+      type="com.wsy.struts.action.LoginAction" >
+      <forward name="error" path="/index.jsp" />
+      <forward name="success" path="/index.jsp" /> 
+      <forward name="adminsuccess" path="/adminindex.jsp" />   
+    </action>
+	<action path="/register" forward="/register.jsp"/>
+    <action
+      attribute="registerForm"
+      input="/register.jsp"
+      name="registerForm"
+      path="/registermanager"
+      scope="request"
+      type="com.wsy.struts.action.RegisterAction" >
+      <forward name="success" path="/index.jsp" /> 
+      </action>
+    <action path="/logoff" type="com.wsy.struts.action.LogoffAction" />
+    <action
+      attribute="ForumForm"
+      input="/topicList.jsp"
+      name="ForumForm"
+      path="/topicList"
+      scope="request"
+      type="com.wsy.struts.action.TopicListAction" >
+      <forward name="error" path="/index.jsp" /> 
+    </action>
+    <action
+      attribute="newtopicForm"
+      input="/newarticle.jsp"
+      name="newtopicForm"
+      path="/newtopic"
+      scope="request"
+      type="com.wsy.struts.action.NewtopicAction" />
+    <action path="/newAticle" 
+    		type="com.wsy.struts.action.NewAticleAction" 
+    		input="/newarticle.jsp"
+    		name="newtopicForm"
+    		attribute="newtopicForm"
+    		scope="request"
+    >
+      <forward name="success" path="/topicList.jsp" />  
+      <forward name="responsesuccess" path="/responselist.jsp" />
+    </action>
+    <action
+      attribute="responselistForm"
+      input="/responselist.jsp"
+      name="responselistForm"
+      path="/responselist"
+      scope="request"
+      type="com.wsy.struts.action.ResponselistAction" />
+		<action path="/main" 
+		input="/main.jsp"
+		type="com.wsy.struts.action.mainAction"
+		scope="request"
+		
+		
+		/>
+    <action
+      attribute="forumeditForm"
+      input="/main.jsp"
+      name="forumeditForm"
+      path="/forumedit"
+      scope="request"
+      type="com.wsy.struts.action.ForumeditAction" />
+     <action path="/forumndel" forward="/forumndel.jsp"></action>
+	 <action
+      attribute="userManagerForm"
+      input="/usermanager.jsp"
+      name="userManagerForm"
+      path="/userManager"
+      scope="request"
+      type="com.wsy.struts.action.UserManagerAction" />
+    <action
+      attribute="usersearchForm"
+      input="/usermanager.jsp"
+      name="usersearchForm"
+      path="/usersearch"
+      scope="request"
+      type="com.wsy.struts.action.UsersearchAction" />
+    <action
+      attribute="usereditForm"
+      input="/useredit.jsp"
+      name="usereditForm"
+      path="/useredit"
+      scope="request"
+      type="com.wsy.struts.action.UsereditAction" />
+    <action
+      attribute="ueditForm"
+      input="/useredit.jsp"
+      name="ueditForm"
+      path="/uedit"
+      scope="request"
+      type="com.wsy.struts.action.UeditAction" />
+    <action
+		path="/userdelete"
+		forward="/userdelete.jsp"
+    />
+    <action
+    	path="/userDel"
+    	attribute="userdeleteForm"
+    	name="userdeleteForm"
+      input="/userdelete.jsp"
+      scope="request"
+      type="com.wsy.struts.action.UserDelAction" />
+    <action
+      attribute="forumDelForm"
+      input="/forumndel.jsp"
+      name="forumDelForm"
+      path="/forumDel"
+      scope="request"
+      type="com.wsy.struts.action.ForumDelAction" />
+	    <action
+		path="/forumadd"
+		forward="/forumadd.jsp"
+    	/>
+    <action
+      attribute="forumAddForm"
+      input="/forumadd.jsp"
+      name="forumAddForm"
+      path="/forumAdd"
+      scope="request"
+      type="com.wsy.struts.action.ForumAddAction" />
+    <action
+      attribute="topicmanagerForm"
+      input="/topicmanager.jsp"
+      name="topicmanagerForm"
+      path="/topicmanager"
+      scope="request"
+      type="com.wsy.struts.action.TopicmanagerAction" />
+   	 <action
+		path="/topicdel"
+		forward="/topicdel.jsp"
+    	/>
+    <action
+      attribute="topicDelForm"
+      input="/topicdel.jsp"
+      name="topicDelForm"
+      path="/topicDel"
+      scope="request"
+      type="com.wsy.struts.action.TopicDelAction" />
+    <action
+		path="/responsetopic"
+		input="/responsetopic.jsp"
+		type="com.wsy.struts.action.ResponseTopicAction"
+		scope="request"
+    />
+    <action
+		path="/responsetopicdel"
+		forward="/responsetopicdel.jsp"
+    />
+    <action
+      attribute="responseDelForm"
+      input="/responsetopicdel.jsp"
+      name="responseDelForm"
+      path="/responseDel"
+      scope="request"
+      type="com.wsy.struts.action.ResponseDelAction" />
+    <action
+		path="/adminlogin"
+		forward="/adminlogin.jsp"
+    />
+    <action
+		path="/index"
+		type="com.wsy.struts.action.IndexAction"
+		input="/index2.jsp"
+    />
+    <action
+		path="/topiclist"
+		forward="/topicList.jsp"
+    />
+    <action
+		path="/checkuser"
+		type="com.wsy.struts.action.CheckUserAction"
+		input="/register.jsp"
+    />
+  </action-mappings>
+  <message-resources parameter="com.wsy.struts.ApplicationResources_zh_CN" />
+</struts-config>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbPersonalInfo"
+		table="tb_personal_info">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="foreign">
+				<param name="property">tbRecord</param>
+			</generator>
+		</id>
+		<one-to-one name="tbRecord"
+			class="com.mwq.hibernate.mapping.TbRecord" cascade="all"
+			constrained="true" lazy="false" />
+		<property name="qq" type="java.lang.String">
+			<column name="QQ" length="20" />
+		</property>
+		<property name="EMail" type="java.lang.String">
+			<column name="E_mail" length="30" />
+		</property>
+		<property name="handset" type="java.lang.String">
+			<column name="handset" length="15" />
+		</property>
+		<property name="telephone" type="java.lang.String">
+			<column name="telephone" length="15" />
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="100" />
+		</property>
+		<property name="postalcode" type="java.lang.String">
+			<column name="postalcode" length="6" />
+		</property>
+		<property name="secondSchoolAge" type="java.lang.String">
+			<column name="second_school_age" length="10" />
+		</property>
+		<property name="secondSpecialty" type="java.lang.String">
+			<column name="second_specialty" length="40" />
+		</property>
+		<property name="graduateSchool" type="java.lang.String">
+			<column name="graduate_school" length="40" />
+		</property>
+		<property name="graduateDate" type="java.util.Date">
+			<column name="graduate_date" length="23" />
+		</property>
+		<property name="partyMemberDate" type="java.util.Date">
+			<column name="party_member_date" length="23" />
+		</property>
+		<property name="computerGrade" type="java.lang.String">
+			<column name="computer_grade" length="10" />
+		</property>
+		<property name="likes" type="java.lang.String">
+			<column name="likes" length="50" />
+		</property>
+		<property name="onesStrongSuit" type="java.lang.String">
+			<column name="ones_strong_suit" length="50" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--	登录控制器-->
+	<bean id="loginMController" class="com.lzw.manager.LoginController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>loginM</value>
+		</property>
+		<property name="successView">
+			<value>redirect:indexM.lzw</value>
+		</property>
+	</bean>
+	<!--	商品管理-->
+	<bean id="indexMController" class="com.lzw.manager.ProductManagerController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	大分类管理-->
+	<bean id="superTypeController" class="com.lzw.manager.SuperTypeController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<bean id="superAddController" class="com.lzw.manager.SuperTypeAddController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>superAdd</value>
+		</property>
+		<property name="successView">
+			<value>redirect:superType.lzw</value>
+		</property>
+	</bean>
+	<!--	小分类管理-->
+	<bean id="subTypeController" class="com.lzw.manager.SubTypeController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>subType</value>
+		</property>
+		<property name="successView">
+			<value>subType</value>
+		</property>
+	</bean>
+	<bean id="subTypeAddController" class="com.lzw.manager.SubTypeAddController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>subAdd</value>
+		</property>
+		<property name="successView">
+			<value>subType</value>
+		</property>
+	</bean>
+	<!--	商品添加-->
+	<bean id="goodsAddController" class="com.lzw.manager.GoodsAddController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>goodsAdd</value>
+		</property>
+		<property name="successView">
+			<value>redirect:indexM.lzw</value>
+		</property>
+	</bean>
+	<!--	商品详细信息-->
+	<bean id="goodsDetailsMController" class="com.lzw.GoodsDetailsController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="view">
+			<value>goodsDetailsM</value>
+		</property>
+	</bean>
+	<!--	商品信息修改-->
+	<bean id="goodsModifyController" class="com.lzw.manager.GoodsModifyController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>goodsModify</value>
+		</property>
+		<property name="successView">
+			<value>redirect:indexM.lzw</value>
+		</property>
+	</bean>
+	<!-- 商品删除-->
+	<bean id="goodsDelController" class="com.lzw.manager.GoodsDelController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	会员管理-->
+	<bean id="memManagerController" class="com.lzw.manager.MemberManagerController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="methodNameResolver">
+			<ref local="memMethodResolver" />
+		</property>
+	</bean>
+	<bean id="memMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/memberDetail.lzw">detail</prop>
+				<prop key="/memberManage.lzw">view</prop>
+				<prop key="/memberFreeze.lzw">freeze</prop>
+				<prop key="/memberThaw.lzw">thaw</prop>
+			</props>
+		</property>
+	</bean>
+	<!--	订单管理-->
+	<bean id="orderManagerController" class="com.lzw.manager.OrderManagerController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="methodNameResolver">
+			<ref local="orderMethodResolver" />
+		</property>
+	</bean>
+	<bean id="orderMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/orderMDetail.lzw">detail</prop>
+				<prop key="/orderManage.lzw">view</prop>
+				<prop key="/orderMEnforce.lzw">enforce</prop>
+			</props>
+		</property>
+	</bean>
+	<!--	公告管理-->
+	<bean id="placardManageController" class="com.lzw.manager.PlacardManageController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>placardManage</value>
+		</property>
+		<property name="successView">
+			<value>placardManage</value>
+		</property>
+	</bean>
+	<bean id="placardAddController" class="com.lzw.manager.PlacardAddController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>placardAdd</value>
+		</property>
+		<property name="successView">
+			<value>placardManage</value>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,20 @@
+#
+#Sat Nov 17 10:01:10 CST 2007
+genBasicCompId=false
+sessionFactoryName=com.mwq.hibernate.HibernateSessionFactory
+profile=
+daoSFId=
+version=3.1
+jndiPath=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=lib
+addLibs2Project=false
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=
+configFile=/PersonnelManage/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=false

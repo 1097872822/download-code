@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Tue Dec 11 09:18:20 CST 2007
+onejar.license.required=false
+manifest.classpath=. lib\\msbase.jar lib\\mssqlserver.jar lib\\msutil.jar
+manifest.removesigners=false
+onejar.checkbox=false
+jarname=C\:\\com\\atest.jar
+manifest.mergeall=false
+manifest.mainclass=com.lzw.JXCFrame
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=<jar|msbase.jar>;<jar|mssqlserver.jar>;<jar|msutil.jar>
+includes=

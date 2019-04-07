@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.jdbc.sqlserver.SQLServerDriver" />
+		<property name="url"
+			value="jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=db_shop" />
+		<property name="username" value="sa"/>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:com/lzw/model</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="dao" class="com.lzw.dao.Dao">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="daoProxyFactory"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="proxyTargetClass" value="true" />
+		<property name="target">
+			<ref local="dao" />
+		</property>
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

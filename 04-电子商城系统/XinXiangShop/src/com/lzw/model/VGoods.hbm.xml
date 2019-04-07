@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.lzw.model.VGoods" table="V_goods" schema="dbo"
+		catalog="db_shop">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="supertype" type="string">
+			<column name="supertype" length="50" />
+		</property>
+		<property name="superId" type="integer">
+			<column name="superID" />
+		</property>
+		<property name="subId" type="integer">
+			<column name="subID" />
+		</property>
+		<property name="subtype" type="string">
+			<column name="subtype" length="50" />
+		</property>
+		<property name="goodsName" type="string">
+			<column name="GoodsName" length="200" />
+		</property>
+		<property name="introduce" type="string">
+			<column name="Introduce" />
+		</property>
+		<property name="price" type="double">
+			<column name="Price" scale="4" />
+		</property>
+		<property name="nowPrice" type="double">
+			<column name="nowPrice" scale="4" />
+		</property>
+		<property name="picture" type="string">
+			<column name="picture" length="100" />
+		</property>
+		<property name="newGoods" type="integer">
+			<column name="newGoods" />
+		</property>
+		<property name="sale" type="integer">
+			<column name="sale" />
+		</property>
+	</class>
+</hibernate-mapping>

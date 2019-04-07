@@ -1,0 +1,6 @@
+#Sat Mar 24 08:39:54 CST 2007
+DELEGATES_PREFERENCE=delegateValidatorList
+USER_BUILD_PREFERENCE=enabledBuildValidatorListorg.eclipse.wst.dtd.core.internal.validation.eclipse.Validator;org.eclipse.wst.xml.core.internal.validation.eclipse.Validator;
+USER_MANUAL_PREFERENCE=enabledManualValidatorListorg.eclipse.wst.dtd.core.internal.validation.eclipse.Validator;org.eclipse.wst.xml.core.internal.validation.eclipse.Validator;
+USER_PREFERENCE=overrideGlobalPreferencesfalse
+eclipse.preferences.version=1

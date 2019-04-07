@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<property name="connection.driver_class"><!-- 配置数据库的驱动类 -->
+			oracle.jdbc.driver.OracleDriver
+		</property>
+		<property name="connection.url"><!-- 配置数据库的连接路径 -->
+			jdbc:oracle:thin:@127.0.0.1:1521:DBSQL
+		</property>
+		<property name="connection.username">admin</property><!-- 配置数据库的连接用户名 -->
+		<property name="connection.password">admin</property><!-- 配置数据库的连接密码，这里密码为空，在这种情况下也可以省略该行配置代码 -->
+		<property name="dialect"><!-- 配置数据库使用的方言 -->
+			org.hibernate.dialect.OracleDialect
+		</property>
+		<property name="show_sql">true</property><!-- 配置在控制台显示SQL语句 -->
+		<property name="format_sql">true</property><!-- 配置对输出的SQL语句进行格式化 -->
+		<property name="use_sql_comments">true</property><!-- 配置在输出的SQL语句前面添加提示信息 -->
+
+		<mapping resource="com/mwq/hibernate/mapping/TbDept.hbm.xml" /><!-- 配置持久化类映射文件 -->
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbPersonalInfo.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbNativePlace.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbBringUpContent.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbReckoningList.hbm.xml" />
+		<mapping resource="com/mwq/hibernate/mapping/TbManager.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbRewardsAndPunishment.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbAccountItem.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbDutyInfo.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbReckoning.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbTimecard.hbm.xml" />
+		<mapping resource="com/mwq/hibernate/mapping/TbNation.hbm.xml" />
+		<mapping resource="com/mwq/hibernate/mapping/TbRecord.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbReckoningInfo.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbAccessionForm.hbm.xml" />
+		<mapping resource="com/mwq/hibernate/mapping/TbDuty.hbm.xml" />
+		<mapping
+			resource="com/mwq/hibernate/mapping/TbBringUpOntent.hbm.xml" />
+
+	</session-factory>
+
+</hibernate-configuration>

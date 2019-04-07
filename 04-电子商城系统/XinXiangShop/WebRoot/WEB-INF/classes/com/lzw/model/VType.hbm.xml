@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lzw.model.VType" table="V_Type" schema="dbo" catalog="db_shop">
+        <composite-id name="id" class="com.lzw.model.VTypeId">
+            <key-property name="id" type="integer">
+                <column name="ID" />
+            </key-property>
+            <key-property name="superType" type="string">
+                <column name="superType" length="50" />
+            </key-property>
+            <key-property name="subType" type="string">
+                <column name="subType" length="50" />
+            </key-property>
+            <key-property name="subId" type="integer">
+                <column name="subID" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

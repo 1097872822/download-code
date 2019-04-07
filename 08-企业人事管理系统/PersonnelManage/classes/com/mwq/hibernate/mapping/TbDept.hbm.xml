@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbDept" table="tb_dept">
+
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+
+		<many-to-one name="tbDept"
+			class="com.mwq.hibernate.mapping.TbDept" fetch="select">
+			<column name="parent_id" not-null="false" />
+		</many-to-one>
+		<set name="tbDepts" lazy="false" cascade="all-delete-orphan">
+			<key column="parent_id" />
+			<one-to-many class="com.mwq.hibernate.mapping.TbDept" />
+		</set>
+		<set name="tbDutyInfos" lazy="false">
+			<key column="dept_id" />
+			<one-to-many class="com.mwq.hibernate.mapping.TbDutyInfo" />
+		</set>
+
+		<property name="name" type="java.lang.String">
+			<column name="name" length="20" />
+		</property>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="searchController" class="com.lzw.SearchController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	商品控制器-->
+	<bean id="goodsMethodResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/index.lzw">goodsShow</prop>
+				<prop key="/goodsNewGoods.lzw">newGoods</prop>
+				<prop key="/goodsSale.lzw">saleGoods</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="goodsController" class="com.lzw.NewGoodsController">
+		<property name="methodNameResolver">
+			<ref local="goodsMethodResolver" />
+		</property>
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="saleGoodsLine">
+			<value>1</value>
+		</property>
+		<property name="newGoodsLine">
+			<value>3</value>
+		</property>
+	</bean>
+	<!--	会员注册-->
+	<bean id="registerController" class="com.lzw.RegisterController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>register</value>
+		</property>
+		<property name="validator">
+			<bean class="com.lzw.ModifyMemberValidate" />
+		</property>
+	</bean>
+	<!--	登录控制器-->
+	<bean id="loginController" class="com.lzw.LoginController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>index</value>
+		</property>
+		<property name="successView">
+			<value>index</value>
+		</property>
+	</bean>
+	<!--	修改会员资料控制器-->
+	<bean id="modifyMemberController"
+		class="com.lzw.ModifyMemberController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>modifyMember</value>
+		</property>
+		<property name="validator">
+			<bean class="com.lzw.ModifyMemberValidate" />
+		</property>
+	</bean>
+	<!--	购物车-->
+	<bean id="cartSeeController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName">
+			<value>cartSee</value>
+		</property>
+	</bean>
+	<!--	购物车控制器-->
+	<bean id="cartMethodResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/cartAdd.lzw">cartAdd</prop>
+				<prop key="/cartModify.lzw">cartModify</prop>
+				<prop key="/cartClear.lzw">cartClear</prop>
+				<prop key="/cartMove.lzw">cartMove</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="cartController" class="com.lzw.CartController">
+		<property name="methodNameResolver">
+			<ref local="cartMethodResolver" />
+		</property>
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	购物结账-->
+	<bean id="cartCheckoutController"
+		class="com.lzw.CartCheckoutController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="formView">
+			<value>cartCheckout</value>
+		</property>
+		<property name="successView">
+			<value>index</value>
+		</property>
+	</bean>
+	<!--	查看订单-->
+	<bean id="orderController" class="com.lzw.OrderController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	订单详细信息-->
+	<bean id="orderDetailsController"
+		class="com.lzw.OrderDetailsController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	销售排行-->
+	<bean id="sellSortController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName">
+			<value>sellSort</value>
+		</property>
+	</bean>
+	<!--	公告信息-->
+	<bean id="placardDetailsController"
+		class="com.lzw.PlacardDetailsController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+	<!--	商品详细信息-->
+	<bean id="goodsDetailsController"
+		class="com.lzw.GoodsDetailsController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+		<property name="view">
+			<value>goodsDetails</value>
+		</property>
+	</bean>
+	<!--	商品分类信息-->
+	<bean id="typeController" class="com.lzw.TypeController">
+		<property name="dao">
+			<ref bean="daoProxyFactory" />
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lzw.model.TbGoods" table="tb_goods" schema="dbo" catalog="db_shop">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="typeId" type="java.lang.Integer">
+            <column name="typeID" not-null="true" />
+        </property>
+        <property name="goodsName" type="java.lang.String">
+            <column name="goodsName" length="200" not-null="true" />
+        </property>
+        <property name="introduce" type="java.lang.String">
+            <column name="introduce" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" scale="4" not-null="true" />
+        </property>
+        <property name="nowPrice" type="java.lang.Double">
+            <column name="nowPrice" scale="4" />
+        </property>
+        <property name="picture" type="java.lang.String">
+            <column name="picture" length="100" />
+        </property>
+        <property name="intime" type="java.util.Date">
+            <column name="INTime" length="23" not-null="true" />
+        </property>
+        <property name="newGoods" type="java.lang.Integer">
+            <column name="newGoods" not-null="true" />
+        </property>
+        <property name="sale" type="java.lang.Integer">
+            <column name="sale" />
+        </property>
+        <property name="hit" type="java.lang.Integer">
+            <column name="hit" />
+        </property>
+        <set name="tbOrderDetails" inverse="true">
+            <key>
+                <column name="goodsID" not-null="true" />
+            </key>
+            <one-to-many class="com.lzw.model.TbOrderDetail" />
+        </set>
+    </class>
+</hibernate-mapping>

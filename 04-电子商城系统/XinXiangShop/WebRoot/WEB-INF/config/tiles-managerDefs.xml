@@ -1,0 +1,85 @@
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<!--	登录页-->
+	<definition name="loginM" path="/WEB-INF/manage/login.jsp" />
+	<!--	商品管理-->
+	<definition name="indexM" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/content.jsp" />
+	</definition>
+	<!--	大分类管理-->
+	<definition name="superType" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/superType.jsp" />
+	</definition>
+	<!--	大分类添加-->
+	<definition name="superAdd" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/super_add.jsp" />
+	</definition>
+	<!--	小分类管理-->
+	<definition name="subType" extends=".managerLayout">
+		<put name="content" value=".subType" />
+	</definition>
+	<definition name=".subType" page="/WEB-INF/manage/subType.jsp"
+		controllerClass="com.lzw.tiles.SubTypeTilesController" />
+	<!--	小分类添加-->
+	<definition name="subAdd" extends=".managerLayout">
+		<put name="content" value=".subAdd" />
+	</definition>
+	<definition name=".subAdd" page="/WEB-INF/manage/sub_add.jsp"
+		controllerClass="com.lzw.tiles.SubTypeAddTilesController" />
+	<!--		商品添加-->
+	<definition name="goodsAdd" extends=".managerLayout">
+		<put name="content" value=".goodsAdd" />
+	</definition>
+	<definition name=".goodsAdd" page="/WEB-INF/manage/goods_add.jsp"
+		controllerClass="com.lzw.tiles.GoodsAddTilesController" />
+	<!--	商品详细信息-->
+	<definition name="goodsDetailsM" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/jsp/goods_details.jsp" />
+	</definition>
+	<!--	商品信息修改-->
+	<definition name="goodsModify" extends=".managerLayout">
+		<put name="content" value=".goodsModify" />
+	</definition>
+	<definition name=".goodsModify"
+		page="/WEB-INF/manage/goods_modify.jsp"
+		controllerClass="com.lzw.tiles.GoodsAddTilesController" />
+	<!--	商品信息删除-->
+	<definition name="goodsDel" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/goods_del.jsp" />
+	</definition>
+	<!--	会员管理-->
+	<definition name="memManage" extends=".managerLayout">
+		<put name="content" value=".memManage" />
+	</definition>
+	<definition name=".memManage"
+		page="/WEB-INF/manage/membermanage.jsp"
+		controllerClass="com.lzw.tiles.MemberTilesController" />
+	<!--	会员详细信息-->
+	<definition name="memDetails" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/member_detail.jsp" />
+	</definition>
+	<!--	订单管理-->
+	<definition name="orderManage" extends=".managerLayout">
+		<put name="content" value=".orderManage" />
+	</definition>
+	<definition name=".orderManage"
+		page="/WEB-INF/manage/ordermanage.jsp"
+		controllerClass="com.lzw.tiles.OrderManageTilesController" />
+	<!--	订单详细信息-->
+	<definition name="orderMDetails" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/order_detail.jsp" />
+	</definition>
+	<!--	公告管理-->
+	<definition name="placardManage" extends=".managerLayout">
+		<put name="content" value=".placardManage" />
+	</definition>
+	<definition name=".placardManage"
+		page="/WEB-INF/manage/placardmanage.jsp"
+		controllerClass="com.lzw.tiles.placardTilesController" />
+	<!--	公告添加-->
+	<definition name="placardAdd" extends=".managerLayout">
+		<put name="content" value="/WEB-INF/manage/placard_add.jsp" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbRecord"
+		table="tb_record">
+
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+
+		<one-to-one name="tbDutyInfo"
+			class="com.mwq.hibernate.mapping.TbDutyInfo" cascade="all" />
+		<one-to-one name="tbPersonalInfo"
+			class="com.mwq.hibernate.mapping.TbPersonalInfo" cascade="all" />
+		<one-to-one name="tbReckoningList"
+			class="com.mwq.hibernate.mapping.TbReckoningList" cascade="all" />
+		<one-to-one name="tbManager"
+			class="com.mwq.hibernate.mapping.TbManager" cascade="all" />
+		<many-to-one name="tbNation"
+			class="com.mwq.hibernate.mapping.TbNation" fetch="select">
+			<column name="nation_id" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tbNativePlace"
+			class="com.mwq.hibernate.mapping.TbNativePlace" fetch="select">
+			<column name="native_place_id" not-null="true" />
+		</many-to-one>
+
+		<set name="tbBringUpOntents" inverse="true">
+			<key>
+				<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many
+				class="com.mwq.hibernate.mapping.TbBringUpOntent" />
+		</set>
+		<set name="tbTimecardsForRecordId" inverse="true"
+			lazy="false">
+			<key>
+				<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbTimecard" />
+		</set>
+		<set name="tbRewardsAndPunishmentsForRecordId" inverse="true">
+			<key>
+				<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many
+				class="com.mwq.hibernate.mapping.TbRewardsAndPunishment" />
+		</set>
+
+		<property name="recordNumber" type="java.lang.String">
+			<column name="record_number" length="6" not-null="true" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" length="10" not-null="true" />
+		</property>
+		<property name="sex" type="java.lang.String">
+			<column name="sex" length="2" not-null="true" />
+		</property>
+		<property name="birthday" type="java.util.Date">
+			<column name="birthday" length="23" not-null="true" />
+		</property>
+		<property name="photo" type="java.lang.String">
+			<column name="photo" length="10" not-null="false" />
+		</property>
+		<property name="idCard" type="java.lang.String">
+			<column name="ID_card" length="20" not-null="true" />
+		</property>
+		<property name="marriaged" type="java.lang.String">
+			<column name="marriaged" length="4" not-null="true" />
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="address" length="100" not-null="true" />
+		</property>
+		<property name="postalcode" type="java.lang.String">
+			<column name="postalcode" length="6" not-null="true" />
+		</property>
+		<property name="partyMember" type="java.lang.String">
+			<column name="party_member" length="2" not-null="true" />
+		</property>
+		<property name="schoolAge" type="java.lang.String">
+			<column name="school_age" length="10" not-null="true" />
+		</property>
+		<property name="specialty" type="java.lang.String">
+			<column name="specialty" length="40" not-null="true" />
+		</property>
+		<property name="foreignLanguage" type="java.lang.String">
+			<column name="foreign_language" length="10" not-null="true" />
+		</property>
+		<property name="grade" type="java.lang.String">
+			<column name="grade" length="10" not-null="true" />
+		</property>
+		<!--
+			<set name="tbReckoningLists" inverse="true">
+			<key>
+			<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many
+			class="com.mwq.hibernate.mapping.TbReckoningList" />
+			</set>
+			<set name="tbRewardsAndPunishmentsForRatifierRecordId" inverse="true">
+			<key>
+			<column name="ratifier_record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbRewardsAndPunishment" />
+			</set>
+			<set name="tbManagers" inverse="true">
+			<key>
+			<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbManager" />
+			</set>
+			<set name="tbRedeploiesForRatifierRecordId" inverse="true">
+			<key>
+			<column name="ratifier_record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbRedeploy" />
+			</set>
+			<set name="tbPersonalInfos" inverse="true">
+			<key>
+			<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbPersonalInfo" />
+			</set>
+			<set name="tbDutyInfos" inverse="true">
+			<key>
+			<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbDutyInfo" />
+			</set>
+			<set name="tbTimecardsForRatifierRecordId" inverse="true">
+			<key>
+			<column name="ratifier_record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbTimecard" />
+			</set>
+			<set name="tbRedeploiesForRecordId" inverse="true">
+			<key>
+			<column name="record_id" length="6" not-null="true" />
+			</key>
+			<one-to-many class="com.mwq.hibernate.mapping.TbRedeploy" />
+			</set>
+		-->
+	</class>
+</hibernate-mapping>

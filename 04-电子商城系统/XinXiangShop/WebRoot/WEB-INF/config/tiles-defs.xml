@@ -1,0 +1,68 @@
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<!--	首页-->
+	<definition name="index" extends=".indexLayout" />
+	<!--	分类信息-->
+	<definition name="typeInfo" extends=".indexLayout">
+		<put name="content" value="/WEB-INF/jsp/type.jsp" />
+		<put name="right" value=".right" />
+	</definition>
+	<!--	新品上架-->
+	<definition name="newGoods" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/NewGoods.jsp" />
+	</definition>
+	<!--	特价商品-->
+	<definition name="saleGoods" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/sale.jsp" />
+	</definition>
+	<!--	会员注册-->
+	<definition name="register" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/register.jsp" />
+	</definition>
+	<!--	 会员资料修改-->
+	<definition name=".modifyMember"
+		path="/WEB-INF/jsp/modifyMember.jsp"
+		controllerClass="com.lzw.tiles.ModifyMemberTilesController" />
+	<definition name="modifyMember" extends=".myLayout">
+		<put name="content" value=".modifyMember" />
+	</definition>
+	<!--	购物车-->
+	<definition name="cartSee" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/cart_see.jsp" />
+	</definition>
+	<!--	购物结帐-->
+	<definition name=".cartCheckout"
+		path="/WEB-INF/jsp/cart_checkout.jsp"
+		controllerClass="com.lzw.tiles.CartCheckoutTilesController" />
+	<definition name="cartCheckout" extends=".myLayout">
+		<put name="content" value=".cartCheckout" />
+	</definition>
+	<!--	查看订单-->
+	<definition name="order" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/order.jsp" />
+	</definition>
+	<!--	销售排行-->
+	<definition name=".sellSort" path="/WEB-INF/jsp/sellSort.jsp"
+		controllerClass="com.lzw.tiles.sellSortTilesController" />
+	<definition name="sellSort" extends=".myLayout">
+		<put name="content" value=".sellSort" />
+	</definition>
+	<!--	公告详细信息-->
+	<definition name="placardDetails" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/placard_details.jsp" />
+	</definition>
+	<!--	商品详细信息-->
+	<definition name="goodsDetails" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/goods_details.jsp" />
+	</definition>
+	<!--	订单详细信息-->
+	<definition name="orderDetails" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/order_detail.jsp" />
+	</definition>
+	<!--	搜索结果-->
+	<definition name="searchResult" extends=".myLayout">
+		<put name="content" value="/WEB-INF/jsp/search_deal.jsp" />
+	</definition>
+</tiles-definitions>

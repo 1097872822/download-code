@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lzw.model.VMember" table="V_Member" schema="dbo" catalog="db_shop">
+        <composite-id name="id" class="com.lzw.model.VMemberId">
+            <key-property name="id" type="integer">
+                <column name="ID" />
+            </key-property>
+            <key-property name="trueName" type="string">
+                <column name="TrueName" length="20" />
+            </key-property>
+            <key-property name="city" type="string">
+                <column name="city" length="20" />
+            </key-property>
+            <key-property name="address" type="string">
+                <column name="address" length="100" />
+            </key-property>
+            <key-property name="postcode" type="string">
+                <column name="postcode" length="6" />
+            </key-property>
+            <key-property name="username" type="string">
+                <column name="username" length="20" />
+            </key-property>
+            <key-property name="cardNo" type="string">
+                <column name="CardNO" length="24" />
+            </key-property>
+            <key-property name="cardType" type="string">
+                <column name="CardType" length="20" />
+            </key-property>
+            <key-property name="grade" type="integer">
+                <column name="grade" />
+            </key-property>
+            <key-property name="amount" type="double">
+                <column name="Amount" scale="4" />
+            </key-property>
+            <key-property name="tel" type="string">
+                <column name="Tel" length="20" />
+            </key-property>
+            <key-property name="email" type="string">
+                <column name="Email" length="100" />
+            </key-property>
+            <key-property name="rebate" type="float">
+                <column name="rebate" precision="53" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

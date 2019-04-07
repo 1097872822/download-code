@@ -1,0 +1,9 @@
+MIDlet-1: LZW VS LS Chess,,com.lzw.Game
+MIDlet-Description: 网络版手机游戏
+MIDlet-Jar-Size: 24637
+MIDlet-Jar-URL: xiangqi.jar
+MIDlet-Name: xiangqi Midlet Suite
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-Version: 1.0.0
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.1

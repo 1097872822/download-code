@@ -1,0 +1,12 @@
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+<!--	模板-->
+	<definition name=".managerLayout" page="/WEB-INF/manage/template/indexTemplate.jsp">
+		<put name="title" value="长春欣欣电子商城后台管理" />
+		<put name="banner" value="/WEB-INF/manage/banner.jsp" />
+		<put name="left" value="/WEB-INF/manage/left.jsp" />
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+	</definition>
+</tiles-definitions>

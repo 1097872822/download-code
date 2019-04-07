@@ -1,0 +1,20 @@
+#
+#Thu Dec 28 10:57:54 CST 2006
+genBasicCompId=false
+sessionFactoryName=com.lzw.model.HibernateSessionFactory
+profile=
+daoSFId=
+version=3.1
+jndiPath=
+springDaoFile=
+useJavaTypes=false
+keyGenerator=
+libInstallFolder=
+addLibs2Project=false
+genVersionTag=false
+sessionFactoryId=sessionFactory
+basePersistenceClass=
+reSettingsFile=
+configFile=/ElectronShop/WebRoot/WEB-INF/applicationContext.xml
+createConfigFile=false
+addLibs2Classpath=false

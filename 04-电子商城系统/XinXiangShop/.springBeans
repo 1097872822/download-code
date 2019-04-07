@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<configExtensions>
+		<configExtension>xml</configExtension>
+	</configExtensions>
+	<configs>
+		<config>WebRoot/WEB-INF/config/managerController-config.xml</config>
+		<config>WebRoot/WEB-INF/config/view-config.xml</config>
+		<config>WebRoot/WEB-INF/config/controller-config.xml</config>
+		<config>WebRoot/WEB-INF/config/dao-config.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

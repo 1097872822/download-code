@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbReckoningInfo"
+		table="tb_reckoning_info">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<many-to-one name="tbReckoning"
+			class="com.mwq.hibernate.mapping.TbReckoning">
+			<column name="reckoning_id" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tbAccountItem"
+			class="com.mwq.hibernate.mapping.TbAccountItem" fetch="select"
+			lazy="false">
+			<column name="account_item_id" not-null="true" />
+		</many-to-one>
+		<property name="money" type="java.lang.Integer">
+			<column name="money" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

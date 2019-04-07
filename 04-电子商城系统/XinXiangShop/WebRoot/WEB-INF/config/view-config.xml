@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="urlHandlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<!--前台-->
+				<prop key="/index.lzw">goodsController</prop>
+				<prop key="/goods*.lzw">goodsController</prop>
+				<prop key="/register.lzw">registerController</prop>
+				<prop key="/login.lzw">loginController</prop>
+				<prop key="/modifyMember.lzw">modifyMemberController</prop>
+				<prop key="/order.lzw">orderController</prop>
+				<prop key="/sellSort.lzw">sellSortController</prop>
+				<prop key="/placardDetails.lzw">placardDetailsController</prop>
+				<prop key="/goodsDetails.lzw">goodsDetailsController</prop>
+				<prop key="/type.lzw">typeController</prop>
+				<prop key="/cart*.lzw">cartController</prop>
+				<prop key="/cartSee.lzw">cartSeeController</prop>
+				<prop key="/cartCheckout.lzw">cartCheckoutController</prop>
+				<prop key="/orderDetails.lzw">orderDetailsController</prop>
+				<prop key="/searchController.lzw">searchController</prop>
+				<!--后台-->
+				<prop key="/loginM.lzw">loginMController</prop>
+				<prop key="/indexM.lzw">indexMController</prop>
+				<prop key="/superType.lzw">superTypeController</prop>
+				<prop key="/superAdd.lzw">superAddController</prop>
+				<prop key="/subType.lzw">subTypeController</prop>
+				<prop key="/subTypeAdd.lzw">subTypeAddController</prop>
+				<prop key="/goodsAdd.lzw">goodsAddController</prop>
+				<prop key="/goodsDetailM.lzw">goodsDetailsMController</prop>
+				<prop key="/goodsModify.lzw">goodsModifyController</prop>
+				<prop key="/goodsDel.lzw">goodsDelController</prop>
+				<prop key="/member*.lzw">memManagerController</prop>
+				<prop key="/orderM*.lzw">orderManagerController</prop>
+				<prop key="/placardManage.lzw">placardManageController</prop>
+				<prop key="/placardAdd.lzw">placardAddController</prop>
+			</props>
+		</property>
+	</bean><!--
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">Error</prop>
+			</props>
+		</property>
+	</bean>
+	--><bean id="tilesConfiger"
+		class="org.springframework.web.servlet.view.tiles.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>WEB-INF/config/tiles-template.xml</value>
+				<value>WEB-INF/config/tiles-defs.xml</value>
+				<value>WEB-INF/config/tiles-managerDefs.xml</value>
+				<value>WEB-INF/config/tiles-manageTemplate.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles.TilesJstlView
+			</value>
+		</property>
+	</bean>
+</beans>

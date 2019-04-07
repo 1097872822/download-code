@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbManager" table="tb_manager">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="foreign">
+				<param name="property">tbRecord</param>
+			</generator>
+		</id>
+		<one-to-one name="tbRecord"
+			class="com.mwq.hibernate.mapping.TbRecord" constrained="true"
+			lazy="false" />
+		<property name="password" type="java.lang.String">
+			<column name="password" length="20" not-null="true" />
+		</property>
+		<property name="purview" type="java.lang.String">
+			<column name="purview" length="10" not-null="true" />
+		</property>
+		<property name="state" type="java.lang.String">
+			<column name="state" length="4" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

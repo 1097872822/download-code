@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbDutyInfo"
+		table="tb_duty_info">
+
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="foreign">
+				<param name="property">tbRecord</param>
+			</generator>
+		</id>
+
+		<one-to-one name="tbRecord"
+			class="com.mwq.hibernate.mapping.TbRecord" constrained="true" />
+		<many-to-one name="tbDept"
+			class="com.mwq.hibernate.mapping.TbDept" fetch="select"
+			lazy="false">
+			<column name="dept_id" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tbDuty"
+			class="com.mwq.hibernate.mapping.TbDuty" fetch="select"
+			lazy="false">
+			<column name="duty_id" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tbAccessionForm"
+			class="com.mwq.hibernate.mapping.TbAccessionForm" fetch="select">
+			<column name="accession_form_id" not-null="true" />
+		</many-to-one>
+
+		<property name="accessionDate" type="java.util.Date">
+			<column name="accession_date" length="23" not-null="true" />
+		</property>
+		<property name="dimissionDate" type="java.util.Date">
+			<column name="dimission_date" length="23" />
+		</property>
+		<property name="dimissionReason" type="java.lang.String">
+			<column name="dimission_reason" length="100" />
+		</property>
+		<property name="firstPactDate" type="java.util.Date">
+			<column name="first_pact_date" length="23" />
+		</property>
+		<property name="pactStartDate" type="java.util.Date">
+			<column name="pact_start_date" length="23" />
+		</property>
+		<property name="pactEndDate" type="java.util.Date">
+			<column name="pact_end_date" length="23" />
+		</property>
+		<property name="bankName" type="java.lang.String">
+			<column name="bank_name" length="60" />
+		</property>
+		<property name="bankNo" type="java.lang.String">
+			<column name="bank_NO" length="30" />
+		</property>
+		<property name="societySafetyNo" type="java.lang.String">
+			<column name="society_safety_NO" length="30" />
+		</property>
+		<property name="annuitySafetyNo" type="java.lang.String">
+			<column name="annuity_safety_NO" length="30" />
+		</property>
+		<property name="doleSafetyNo" type="java.lang.String">
+			<column name="dole_safety_NO" length="30" />
+		</property>
+		<property name="medicareSafetyNo" type="java.lang.String">
+			<column name="medicare_safety_NO" length="30" />
+		</property>
+		<property name="compoSafetyNo" type="java.lang.String">
+			<column name="compo_safety_NO" length="30" />
+		</property>
+		<property name="accumulationFundNo" type="java.lang.String">
+			<column name="accumulation_fund_NO" length="30" />
+		</property>
+	</class>
+</hibernate-mapping>

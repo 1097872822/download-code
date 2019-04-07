@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lzw.model.TbOrderDetail" table="tb_order_detail" schema="dbo" catalog="db_shop">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tbOrder" class="com.lzw.model.TbOrder" fetch="select">
+            <column name="orderID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tbGoods" class="com.lzw.model.TbGoods" fetch="select" lazy="false">
+            <column name="goodsID" not-null="true" />
+        </many-to-one>
+        <property name="price" type="java.lang.Double">
+            <column name="price" scale="4" not-null="true" />
+        </property>
+        <property name="number" type="java.lang.Integer">
+            <column name="number" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

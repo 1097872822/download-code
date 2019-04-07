@@ -1,0 +1,8 @@
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-Jar-URL: xiangqi.jar
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-Description: 网络版手机游戏
+MicroEdition-Profile: MIDP-2.1
+MIDlet-1: LZW VS LS Chess,,com.lzw.Game
+MIDlet-Name: xiangqi Midlet Suite

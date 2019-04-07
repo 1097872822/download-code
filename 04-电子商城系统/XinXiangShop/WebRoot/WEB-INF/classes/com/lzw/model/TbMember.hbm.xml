@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lzw.model.TbMember" table="tb_member" schema="dbo" catalog="db_shop">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="userName" length="20" not-null="true" />
+        </property>
+        <property name="trueName" type="java.lang.String">
+            <column name="trueName" length="20" not-null="true" />
+        </property>
+        <property name="passWord" type="java.lang.String">
+            <column name="passWord" length="20" not-null="true" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="city" length="20" not-null="true" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="100" not-null="true" />
+        </property>
+        <property name="postcode" type="java.lang.String">
+            <column name="postcode" length="6" not-null="true" />
+        </property>
+        <property name="cardNo" type="java.lang.String">
+            <column name="cardNO" length="24" />
+        </property>
+        <property name="cardType" type="java.lang.String">
+            <column name="cardType" length="20" />
+        </property>
+        <property name="grade" type="java.lang.Integer">
+            <column name="grade" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="Amount" scale="4" />
+        </property>
+        <property name="tel" type="java.lang.String">
+            <column name="tel" length="20" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="100" not-null="true" />
+        </property>
+        <property name="freeze" type="java.lang.Integer">
+            <column name="freeze" />
+        </property>
+    </class>
+</hibernate-mapping>

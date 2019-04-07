@@ -1,0 +1,50 @@
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<!--出错页面模板-->
+<definition name="Error" path="/WEB-INF/jsp/template/error.jsp" />
+	<!--首页模板-->
+	<definition name=".indexLayout"
+		path="/WEB-INF/jsp/template/indexTemplate.jsp">
+		<put name="title" value="欣想电子商城" />							<!--网站标题-->
+		<put name="navigation" value="/WEB-INF/jsp/navigation.jsp" />	<!--导航栏-->
+		<put name="left" value=".left" />								<!--左菜单-->
+		<put name="search" value=".search" />							<!--搜索栏-->
+		<put name="content" value="/WEB-INF/jsp/productInfo.jsp" />		<!--内容分栏-->
+		<put name="right" value=".right" />								<!--右菜单-->
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />			<!--版权信息-->
+	</definition>
+	<!--次页模板-->
+	<definition name=".myLayout"
+		path="/WEB-INF/jsp/template/pageTemplate.jsp">
+		<put name="title" value="欣想电子商城" />							<!--网站标题-->
+		<put name="navigation" value="/WEB-INF/jsp/navigation.jsp" />	<!--导航栏-->
+		<put name="left" value=".left" />								<!--左菜单-->
+		<put name="search" value=".search" />							<!--搜索栏-->
+		<put name="content" value="/WEB-INF/jsp/productInfo.jsp" />		<!--内容分栏-->
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />			<!--版权信息-->
+	</definition>
+	<!-- 其它Tiles组件 -->
+	<definition name=".search" path="/WEB-INF/jsp/search.jsp"
+		controllerClass="com.lzw.tiles.SearchTileController" />			<!--搜索栏控制器-->
+	<definition name=".placard" path="/WEB-INF/jsp/placard.jsp"
+		controllerClass="com.lzw.tiles.placardTilesController" />		<!--公告栏控制器-->
+	<definition name=".sellSortLeft"
+		path="/WEB-INF/jsp/sellSortLeft.jsp"
+		controllerClass="com.lzw.tiles.sellSortTilesController" />		<!--销售排行控制器-->
+	<definition name=".left"
+		page="/WEB-INF/jsp/template/leftTemplate.jsp">
+		<put name="login" value="/WEB-INF/jsp/login.jsp" />
+		<put name="placard" value=".placard" />
+		<put name="sellSortLeft" value=".sellSortLeft" />
+	</definition>
+	<definition name=".typeList"
+		controllerClass="com.lzw.tiles.TypeListTilesController"
+		path="/WEB-INF/jsp/productClass.jsp" />							<!--商品分类控制器-->
+	<definition name=".right"
+		path="/WEB-INF/jsp/template/rightTemplate.jsp">
+		<put name="productClass" value=".typeList" />
+		<put name="guanggao" value="/WEB-INF/jsp/guanggao.jsp" />
+	</definition>
+</tiles-definitions>

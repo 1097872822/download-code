@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mwq.hibernate.mapping.TbRewardsAndPunishment"
+		table="tb_rewards_and_punishment">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<many-to-one name="tbDept"
+			class="com.mwq.hibernate.mapping.TbDept" fetch="select">
+			<column name="ratifier_dept_id" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tbRecordByRecordId"
+			class="com.mwq.hibernate.mapping.TbRecord" fetch="select">
+			<column name="record_id" length="6" not-null="true" />
+		</many-to-one>
+		<many-to-one name="tbRecordByRatifierRecordId"
+			class="com.mwq.hibernate.mapping.TbRecord" fetch="select">
+			<column name="ratifier_record_id" length="6"
+				not-null="true" />
+		</many-to-one>
+		<property name="type" type="java.lang.String">
+			<column name="type" length="4" not-null="true" />
+		</property>
+		<property name="reason" type="java.lang.String">
+			<column name="reason" length="60" not-null="true" />
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="content" length="100" not-null="true" />
+		</property>
+		<property name="money" type="java.lang.Integer">
+			<column name="money" not-null="true" />
+		</property>
+		<property name="startDate" type="java.util.Date">
+			<column name="start_date" length="23" not-null="true" />
+		</property>
+		<property name="endDate" type="java.util.Date">
+			<column name="end_date" length="23" not-null="true" />
+		</property>
+		<property name="ratifierDate" type="java.util.Date">
+			<column name="ratifier_date" length="23" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

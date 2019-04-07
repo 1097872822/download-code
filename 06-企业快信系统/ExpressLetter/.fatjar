@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Tue Jan 15 10:37:28 CST 2008
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=C\:\\Documents and Settings\\Administrator\\\u684C\u9762\\ExpressLetter\uFF081.15\uFF09.jar
+manifest.mergeall=true
+manifest.mainclass=com.mwq.ExpressLetter
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=
